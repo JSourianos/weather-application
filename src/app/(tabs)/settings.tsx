@@ -1,9 +1,15 @@
-import { Text, View } from "react-native";
+import { Text } from "react-native";
+import { ScreenWrapper } from "@/src/components/ScreenWrapper";
 
 export default function SettingsPage() {
   return (
-    <View>
-      <Text>Settings</Text>
-    </View>
+    <ScreenWrapper>
+      <Text
+        className="text-2xl font-bold
+      "
+      >
+        Settings
+      </Text>
+    </ScreenWrapper>
   );
 }

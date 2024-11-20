@@ -4,7 +4,6 @@ import { ErrorView } from "@/src/components/ErrorView";
 import { LoadingView } from "@/src/components/LoadingView";
 import { Cloud, Droplets, Wind } from "lucide-react-native";
 
-// TODO: Wind from direction also.
 export const WeatherItem = ({ url, name }: { url: string; name: string }) => {
   const { data, status } = useFetchWeatherData(url);
 
@@ -44,5 +43,9 @@ export const WeatherItem = ({ url, name }: { url: string; name: string }) => {
 };
 
 const BaseContainer = ({ children }: { children: React.ReactNode }) => {
-  return <View className="bg-slate-200 m-4 rounded-2xl">{children}</View>;
+  return (
+    <View className="bg-blue-50 rounded-2xl border border-blue-200 ">
+      {children}
+    </View>
+  );
 };
