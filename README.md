@@ -1,4 +1,4 @@
-# Handelsbanken Code Challenge
+# Code Challenge
 
 ## How to run the project
 
@@ -20,4 +20,3 @@
 
 ## ESLint and Prettier
 * ESLint and Prettier are used to maintain code quality and consistency.
-# code-challenge
