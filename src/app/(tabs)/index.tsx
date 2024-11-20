@@ -1,4 +1,4 @@
-import { FlatList, Text, View } from "react-native";
+import { FlatList } from "react-native";
 import { useState } from "react";
 import { WeatherItem } from "@/src/components/WeatherItem";
 import { DEFAULT_URLS } from "@/src/utils/api";
@@ -13,12 +13,13 @@ import { DEFAULT_URLS } from "@/src/utils/api";
  * */
 
 export default function Homepage() {
+  // TODO: Extract to custom hook, or to context? Would allow us to not fetch twice.
   const [urls, setUrls] = useState(DEFAULT_URLS);
 
   return (
     <FlatList
       data={urls}
-      renderItem={({ item }) => <WeatherItem url={item} />}
+      renderItem={({ item }) => <WeatherItem {...item} />}
     />
   );
 }

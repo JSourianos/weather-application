@@ -18,6 +18,15 @@ const OsloUrl = new URL(YR_API_URL);
 OsloUrl.searchParams.append("lat", OsloCoords.lat.toString());
 OsloUrl.searchParams.append("lon", OsloCoords.lon.toString());
 
-const DEFAULT_URLS = [KorfuUrl.toString(), OsloUrl.toString()];
+const DEFAULT_URLS = [
+  {
+    name: "Korfu",
+    url: KorfuUrl.toString(),
+  },
+  {
+    name: "Oslo",
+    url: OsloUrl.toString(),
+  },
+];
 
 export { YR_API_URL, KorfuUrl, OsloUrl, DEFAULT_URLS };
