@@ -36,6 +36,7 @@ export const useFetchWeatherData = (
         const json = await response.json();
         setData(json);
       } catch (e) {
+        console.error(e);
         setStatus("error");
       } finally {
         setStatus("idle");

@@ -23,7 +23,6 @@ export const useUserLocation = (): {
     });
 
     if (existingLocation) {
-      console.log("existingLocation", existingLocation);
       return JSON.parse(existingLocation);
     }
 

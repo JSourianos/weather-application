@@ -11,14 +11,13 @@ import { useAsyncStorage } from "@react-native-async-storage/async-storage";
  * TODO:
  *  1. Base Wrapper around Item, Loading and Error.
  *  2. Type out the API Response
- *  3. Add AsyncStorage for User Preferences
  *  4. Check Documentation if we can fetch multiple at once.
- *  5. Weather Specific Page
  *  6. Weather wind direction etc, on the window specific page.
  *  7. Add a refresh button.
  *  8. Wind from direction, and transform the icon.
  *  9. On specific screen, add forecast also
-
+ *  10. Add 5-10 location that are searchable, in an action sheet
+ *  11. Fix being able to add my own location multiple times.
  * */
 
 export default function Homepage() {
@@ -57,8 +56,6 @@ export default function Homepage() {
     const location = await getItem();
 
     if (location) {
-      console.log("location", location);
-
       const { latitude, longitude } = JSON.parse(location);
       setUrls((prev) => [
         ...prev,
@@ -74,15 +71,23 @@ export default function Homepage() {
     handleGetLocation();
   }, []);
 
+  const containsMyLocation = urls.some((url) => url.name === "My Location");
+
   return (
     <ScreenWrapper>
-      <Pressable
-        className="bg-slate-200 flex flex-row items-center gap-4 p-4 self-start rounded-2xl my-2 ml-auto"
-        onPress={handleAddLocation}
-      >
-        <Navigation />
-        <Text className="text-blue-500 font-medium">Add my location!</Text>
-      </Pressable>
+      {userLocationError && (
+        <Text className="text-red-500">{userLocationError}</Text>
+      )}
+
+      {!containsMyLocation && (
+        <Pressable
+          className="bg-slate-200 flex flex-row items-center gap-4 p-4 self-start rounded-2xl my-2 ml-auto"
+          onPress={handleAddLocation}
+        >
+          <Navigation />
+          <Text className="text-blue-500 font-medium">Add my location!</Text>
+        </Pressable>
+      )}
       <FlatList
         style={{ flex: 1 }}
         data={urls}
