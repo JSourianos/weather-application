@@ -1,7 +1,10 @@
 import { Text } from "react-native";
 import { ScreenWrapper } from "@/src/components/ScreenWrapper";
+import { useUserPreference } from "@/src/context/user-preference";
 
 export default function SettingsPage() {
+  const { degreeType } = useUserPreference();
+
   return (
     <ScreenWrapper>
       <Text
@@ -10,6 +13,8 @@ export default function SettingsPage() {
       >
         Settings
       </Text>
+
+      <Text className="text-lg">{degreeType}</Text>
     </ScreenWrapper>
   );
 }
