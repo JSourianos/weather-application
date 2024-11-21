@@ -13,10 +13,9 @@ import { ScreenWrapper } from "@/src/components/ScreenWrapper";
  *  5. Weather Specific Page
  *  6. Weather wind direction etc, on the window specific page.
  *  7. Add a refresh button.
- *  8.
-// TODO: Wind from direction also.
- *
- *
+ *  8. Wind from direction, and transform the icon.
+ *  9. On specific screen, add forecast also
+
  * */
 
 export default function Homepage() {
