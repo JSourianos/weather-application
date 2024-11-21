@@ -8,6 +8,7 @@ import { ErrorView } from "@/src/components/ErrorView";
 import { useMemo } from "react";
 
 import dayjs from "dayjs";
+
 import { YRTimeseries } from "@/src/utils/types";
 
 const CURRENT_DAY = dayjs();
@@ -42,6 +43,8 @@ export default function WeatherPage() {
       <Text className="text-4xl font-bold mt-4">{currentUrl.name}</Text>
 
       <FlatList
+        className="mt-4"
+        ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
         showsVerticalScrollIndicator={false}
         data={dataForCurrentDay}
         renderItem={({ item }) => <WeatherTimeseriesRenderItem item={item} />}
@@ -60,7 +63,7 @@ const WeatherTimeseriesRenderItem = ({
   const details = item.data.instant.details;
   const time = dayjs(item.time).format("HH:mm");
   return (
-    <View className="p-4 bg-slate-50 my-2 rounded-2xl border-2 border-slate-300">
+    <View className="p-4 bg-slate-50 rounded-2xl border-2 border-slate-300">
       <Text className="text-3xl font-medium mb-4">{time}</Text>
       <View className="flex flex-row justify-between items-center">
         <View className="flex items-center gap-2">
