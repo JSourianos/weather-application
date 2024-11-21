@@ -5,7 +5,15 @@ import { LoadingView } from "@/src/components/LoadingView";
 import { Cloud, Droplets, Wind } from "lucide-react-native";
 import { Link } from "expo-router";
 
-export const WeatherItem = ({ url, name }: { url: string; name: string }) => {
+export const WeatherItem = ({
+  url,
+  name,
+  id,
+}: {
+  url: string;
+  name: string;
+  id: string;
+}) => {
   const { data, status } = useFetchWeatherData(url);
 
   if (status === "error" || data === null) {
@@ -19,8 +27,13 @@ export const WeatherItem = ({ url, name }: { url: string; name: string }) => {
   const { air_temperature, relative_humidity, wind_speed } =
     data.properties.timeseries[0].data.instant.details;
 
+  console.log({
+    air_temperature,
+    relative_humidity,
+    wind_speed,
+  });
   return (
-    <Link href={`/weather/${name}`} asChild>
+    <Link href={`/weather/${id}`} asChild>
       <Pressable>
         <BaseContainer>
           <Text className="text-2xl font-bold text-left p-4">{name}</Text>

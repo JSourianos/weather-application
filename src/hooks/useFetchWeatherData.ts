@@ -1,25 +1,7 @@
 import { useEffect, useState } from "react";
+import { YRAPIResponse } from "@/src/utils/types";
 
 type ResponseStatus = "idle" | "loading" | "error";
-
-type YRAPIResponse = {
-  properties: {
-    timeseries: {
-      data: {
-        instant: {
-          details: {
-            air_pressure_at_sea_level: number;
-            air_temperature: number;
-            cloud_area_fraction: number;
-            relative_humidity: number;
-            wind_from_direction: number;
-            wind_speed: number;
-          };
-        };
-      };
-    }[];
-  };
-};
 
 export const useFetchWeatherData = (
   url: string,
