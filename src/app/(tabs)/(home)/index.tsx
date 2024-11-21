@@ -1,4 +1,4 @@
-import { FlatList, SafeAreaView, View } from "react-native";
+import { FlatList, View } from "react-native";
 import { useState } from "react";
 import { WeatherItem } from "@/src/components/WeatherItem";
 import { DEFAULT_URLS } from "@/src/utils/api";

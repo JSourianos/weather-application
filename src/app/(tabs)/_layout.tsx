@@ -5,9 +5,10 @@ export default function TabLayout() {
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: "blue" }}>
       <Tabs.Screen
-        name="index"
+        name="(home)"
         options={{
           headerShown: false,
+          tabBarLabel: "Home",
           tabBarIcon: ({ color }) => <Cloudy color={color} />,
         }}
       />
@@ -15,6 +16,7 @@ export default function TabLayout() {
         name="settings"
         options={{
           headerShown: false,
+          tabBarLabel: "Settings",
           tabBarIcon: ({ color }) => <UserCog color={color} />,
         }}
       />
