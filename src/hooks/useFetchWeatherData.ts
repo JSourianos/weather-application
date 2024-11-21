@@ -5,8 +5,8 @@ type ResponseStatus = "idle" | "loading" | "error";
 
 export const useFetchWeatherData = (
   url: string,
-): { data: YRAPIResponse | null; status: ResponseStatus } => {
-  const [data, setData] = useState<YRAPIResponse | null>(null);
+): { data: YRAPIResponse | undefined; status: ResponseStatus } => {
+  const [data, setData] = useState<YRAPIResponse | undefined>(undefined);
   const [status, setStatus] = useState<ResponseStatus>("idle");
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const useFetchWeatherData = (
       }
     }
 
-    fetchData().catch((e) => setStatus("error"));
+    fetchData();
   }, [url]);
 
   return { data, status };

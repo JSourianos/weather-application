@@ -1,9 +1,11 @@
-import { Text, View } from "react-native";
+import { ActivityIndicator, Text } from "react-native";
+import { ScreenWrapper } from "@/src/components/ScreenWrapper";
 
 export const LoadingView = () => {
   return (
-    <View>
+    <ScreenWrapper>
+      <ActivityIndicator size="large" />
       <Text>Loading...</Text>
-    </View>
+    </ScreenWrapper>
   );
 };

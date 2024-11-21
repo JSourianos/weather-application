@@ -1,9 +1,13 @@
-import { Text, View } from "react-native";
+import { Text } from "react-native";
+import { ScreenWrapper } from "@/src/components/ScreenWrapper";
+
+import { Triangle } from "lucide-react-native";
 
 export const ErrorView = () => {
   return (
-    <View>
+    <ScreenWrapper>
+      <Triangle size={64} color="red" />
       <Text>Oops, something went wrong...</Text>
-    </View>
+    </ScreenWrapper>
   );
 };

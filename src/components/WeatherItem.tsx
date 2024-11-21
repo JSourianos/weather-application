@@ -19,7 +19,12 @@ export const WeatherItem = ({
   const { data, status } = useFetchWeatherData(url);
   const { degreeType } = useUserPreference();
 
-  if (status === "error" || data === null) {
+  // TODO: Fix error flick, this is not correct.
+  if (status === "error") {
+    return <ErrorView />;
+  }
+
+  if (!data) {
     return <ErrorView />;
   }
 
@@ -39,7 +44,6 @@ export const WeatherItem = ({
             <View className="col-span-2 flex items-center justify-center">
               <Cloud className="h-12 w-12 text-blue-500 mr-4" />
               <Text className="text-4xl font-bold">
-                {" "}
                 {resolveDegreeSelectionText(air_temperature, degreeType)}
               </Text>
             </View>
