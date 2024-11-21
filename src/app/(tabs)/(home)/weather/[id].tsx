@@ -10,6 +10,8 @@ import { useMemo } from "react";
 import dayjs from "dayjs";
 
 import { YRTimeseries } from "@/src/utils/types";
+import { useUserPreference } from "@/src/context/user-preference";
+import { resolveDegreeSelectionText } from "@/src/utils/utils";
 
 const CURRENT_DAY = dayjs();
 
@@ -60,6 +62,7 @@ type WeatherTimeseriesRenderItemProps = {
 const WeatherTimeseriesRenderItem = ({
   item,
 }: WeatherTimeseriesRenderItemProps) => {
+  const { degreeType } = useUserPreference();
   const details = item.data.instant.details;
   const time = dayjs(item.time).format("HH:mm");
   return (
@@ -72,7 +75,9 @@ const WeatherTimeseriesRenderItem = ({
         </View>
         <View className="flex items-center gap-2">
           <Thermometer className="h-5 w-5 text-red-500" />
-          <Text>{details.air_temperature}°C</Text>
+          <Text>
+            {resolveDegreeSelectionText(details.air_temperature, degreeType)}
+          </Text>
         </View>
         <View className="flex items-center gap-2">
           <Droplet className="h-5 w-5 text-green-500" />

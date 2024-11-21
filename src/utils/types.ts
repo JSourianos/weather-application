@@ -20,3 +20,5 @@ export type YRAPIResponse = {
 };
 
 export type YRTimeseries = YRAPIResponse["properties"]["timeseries"][0];
+
+export type DegreeType = "celsius" | "fahrenheit";
