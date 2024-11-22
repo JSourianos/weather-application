@@ -3,7 +3,7 @@ import { ScreenWrapper } from "@/src/components/ScreenWrapper";
 import { useUserPreference } from "@/src/context/user-preference";
 import { DegreeType } from "@/src/utils/types";
 
-export const SettingsPage = () => {
+export const SettingsScreen = () => {
   const { degreeType, updateDegreeType } = useUserPreference();
 
   const handleUpdateDegreeType = (selected: DegreeType) => {
