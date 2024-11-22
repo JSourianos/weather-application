@@ -1,4 +1,4 @@
-import { HomePageScreen } from "@/src/screens/home-page-screen";
+import { HomePageScreen } from "@/src/screens/(home)/home-page-screen";
 /*
  *
  * TODO:
