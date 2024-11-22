@@ -34,25 +34,35 @@ export const UserPreferenceProvider = ({
   const { setItem, getItem } = useAsyncStorage(ASYNC_STORAGE_KEYS.DEGREE_TYPE);
 
   const updateDegreeType = useCallback(
-    (newDegreeType: DegreeType) => {
+    async (newDegreeType: DegreeType) => {
       if (newDegreeType !== "celsius" && newDegreeType !== "fahrenheit") {
         throw new Error("Invalid degree type");
       }
 
-      // TODO: async?
-      setItem(newDegreeType).then(() => {
-        setDegreeType(newDegreeType);
-      });
+      await setItem(newDegreeType);
+
+      setDegreeType(newDegreeType);
     },
     [setItem],
   );
 
   useEffect(() => {
-    getItem().then((storedDegreeType) => {
-      if (storedDegreeType) {
+    const fetchStoredDegreeType = async () => {
+      try {
+        const storedDegreeType = await getItem();
+        if (!storedDegreeType) {
+          setDegreeType("celsius");
+          return;
+        }
+
         setDegreeType(storedDegreeType as DegreeType);
+      } catch (error) {
+        console.error("Failed to fetch stored degree type:", error);
+        setDegreeType("celsius");
       }
-    });
+    };
+
+    fetchStoredDegreeType();
   }, [getItem]);
 
   const contextValue = useMemo(

@@ -24,12 +24,12 @@ export const WeatherItem = ({
     return <ErrorView />;
   }
 
-  if (!data) {
-    return <ErrorView />;
-  }
-
   if (status === "loading") {
     return <LoadingView />;
+  }
+
+  if (!data) {
+    return <ErrorView />;
   }
 
   const { air_temperature, relative_humidity, wind_speed } =
@@ -38,7 +38,7 @@ export const WeatherItem = ({
   return (
     <Link href={`/weather/${id}`} asChild>
       <Pressable>
-        <BaseContainer>
+        <View className="bg-blue-50 rounded-2xl border border-blue-200">
           <Text className="text-2xl font-bold text-left p-4">{name}</Text>
           <View className="flex items-center justify-center mb-6">
             <View className="col-span-2 flex items-center justify-center">
@@ -59,16 +59,8 @@ export const WeatherItem = ({
               </View>
             </View>
           </View>
-        </BaseContainer>
+        </View>
       </Pressable>
     </Link>
-  );
-};
-
-const BaseContainer = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <View className="bg-blue-50 rounded-2xl border border-blue-200 ">
-      {children}
-    </View>
   );
 };
