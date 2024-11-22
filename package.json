@@ -13,7 +13,9 @@
     "lint": "expo lint"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.{ts,tsx}"]
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",

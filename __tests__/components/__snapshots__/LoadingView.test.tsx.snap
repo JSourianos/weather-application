@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingviEW component matches the snapshot 1`] = `
+<RCTSafeAreaView
+  className="bg-white h-full"
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    className="px-4"
+    style={
+      {
+        "flex": 1,
+      }
+    }
+  >
+    <ActivityIndicator
+      size="large"
+    />
+    <Text>
+      Loading...
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;

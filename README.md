@@ -21,7 +21,6 @@
 
 
 
-
 ## Project structure
 * `src/app` contains the routing and layout configuration for the app, based on Expo's File Based Routing. The screens are defined separately in the `src/screens` folder, to avoid clutter in the `app` folder, and make integration testing easier.
 
@@ -37,6 +36,10 @@
 * ESLint and Prettier are used to maintain code quality and consistency, as well as static analysis.
 
 ## Testing
+
+### Test code can be found under ``__tests__`` folder in the root directory.
+### Mocks can be found under ``__mocks__`` folder in the root directory.
+
 * Jest and React Testing Library are used for testing.
 * Commands for running tests:
 * Relevant commands:
@@ -46,8 +49,5 @@
 
 
 ## Future Development:
-* CI/CD:
-  * Implement CI/CD pipeline using GitHub Actions. 
-  * Run tests and linters on every push to branch
-  * Merge to stage branch triggers TestFlight release
-  * Merge to master branch triggers App Store release
+* CI/CD pipeline
+* React Query
