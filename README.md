@@ -61,3 +61,4 @@
 ## Future Development:
 * CI/CD pipeline
 * React Query
+* Higher Test Coverage

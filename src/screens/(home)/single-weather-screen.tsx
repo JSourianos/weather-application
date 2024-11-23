@@ -28,7 +28,7 @@ export const SingleWeatherScreen = ({ params }: { params: { id: string } }) => {
     return data?.properties.timeseries.filter((item) =>
       dayjs(item.time).isSame(CURRENT_DAY, "day"),
     );
-  }, [data, sunriseData]);
+  }, [data]);
 
   if (status === "loading" || sunriseStatus === "loading") {
     return <LoadingView />;
