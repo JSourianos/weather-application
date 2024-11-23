@@ -1,4 +1,4 @@
-import { resolveDegreeSelectionText } from "@/src/utils/utils";
+import { resolveDegreeSelectionText } from "@/src/lib/utils/utils";
 
 describe("resolveDegreeSelectionText", () => {
   it("should return the temperature in celsius", () => {

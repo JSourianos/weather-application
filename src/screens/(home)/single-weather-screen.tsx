@@ -9,9 +9,9 @@ import { useMemo } from "react";
 
 import dayjs from "dayjs";
 
-import { YRTimeseries } from "@/src/utils/types";
+import { YRTimeseries } from "@/src/lib/utils/types";
 import { useUserPreference } from "@/src/context/user-preference";
-import { resolveDegreeSelectionText } from "@/src/utils/utils";
+import { resolveDegreeSelectionText } from "@/src/lib/utils/utils";
 
 const CURRENT_DAY = dayjs();
 

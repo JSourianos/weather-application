@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { YRAPIResponse } from "@/src/utils/types";
+import { YRAPIResponse } from "@/src/lib/utils/types";
 
 type ResponseStatus = "idle" | "loading" | "error";
 

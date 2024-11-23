@@ -31,9 +31,19 @@
 * `src/contenxts` contains the context providers used in the app, and their respective hooks.
 * `src/hooks` contains the custom hooks used in the app.
 
+## Key Packages
+* `dayjs` is used for date and time manipulation.
+* `lucide-react-native` is used for icons.
+* `nativewind` is used for styling.
+* `expo-location` is used for location services.
+
+## Icons
+**IMPORTANT:** You have to export the icons from lib/icons using the wrapper function in order for NativeWind to be able to apply classnames.
+
+* We use the `lucide-react-native` package for icons. You can find the icons and their names [here](https://lucide.dev/). 
 
 ## ESLint and Prettier
-* ESLint and Prettier are used to maintain code quality and consistency, as well as static analysis.
+* ESLint and Prettier are used to maintain code quality and consistency, as well as for static analysis.
 
 ## Testing
 

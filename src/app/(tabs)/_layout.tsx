@@ -1,5 +1,7 @@
 import { Tabs } from "expo-router";
-import { Cloudy, UserCog } from "lucide-react-native";
+import { CloudyIcon, UserCogIcon } from "@/src/lib/icons";
+import { cn } from "@/src/lib/utils/utils";
+import { Text } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -9,7 +11,14 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarLabel: "Home",
-          tabBarIcon: ({ color }) => <Cloudy color={color} />,
+          tabBarLabelStyle: {
+            color: "black",
+          },
+          tabBarIcon: ({ focused }) => (
+            <CloudyIcon
+              className={cn(focused ? "text-blue-600" : "text-blue-400")}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -17,7 +26,14 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           tabBarLabel: "Settings",
-          tabBarIcon: ({ color }) => <UserCog color={color} />,
+          tabBarLabelStyle: {
+            color: "black",
+          },
+          tabBarIcon: ({ focused }) => (
+            <UserCogIcon
+              className={cn(focused ? "text-blue-600" : "text-blue-400")}
+            />
+          ),
         }}
       />
     </Tabs>

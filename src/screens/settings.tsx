@@ -1,7 +1,7 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { ScreenWrapper } from "@/src/components/ScreenWrapper";
 import { useUserPreference } from "@/src/context/user-preference";
-import { DegreeType } from "@/src/utils/types";
+import { DegreeType } from "@/src/lib/utils/types";
 
 export const SettingsScreen = () => {
   const { degreeType, updateDegreeType } = useUserPreference();

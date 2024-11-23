@@ -1,6 +1,6 @@
 import { useStoredUrls } from "@/src/context/stored-urls";
 import { useAsyncStorage } from "@react-native-async-storage/async-storage";
-import { ASYNC_STORAGE_KEYS } from "@/src/utils/async-storage-keys";
+import { ASYNC_STORAGE_KEYS } from "@/src/lib/utils/async-storage-keys";
 import { useEffect } from "react";
 import { ScreenWrapper } from "@/src/components/ScreenWrapper";
 import { AddUserLocation } from "@/src/components/AddUserLocation";

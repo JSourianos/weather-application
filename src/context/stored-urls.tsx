@@ -1,4 +1,4 @@
-import { YR_API_URL } from "@/src/utils/api";
+import { YR_API_URL } from "@/src/lib/utils/api";
 import {
   createContext,
   ReactNode,

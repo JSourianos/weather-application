@@ -46,17 +46,17 @@ describe("WeatherItem", () => {
   });
 
   it("renders weather data correctly in celsius", async () => {
-    render(
+    const { findByText } = render(
       <WeatherItem url="https://test.url" name="Test Location" id="test-id" />,
     );
 
     // Check for initial loading
-    expect(screen.getByText("Loading...")).toBeTruthy();
+    expect(await findByText("Loading...")).toBeTruthy();
 
-    expect(await screen.findByText("Test Location")).toBeTruthy();
-    expect(await screen.findByText("20°C")).toBeTruthy();
-    expect(await screen.findByText("Humidity: 65%")).toBeTruthy();
-    expect(await screen.findByText("Wind: 5 km/h")).toBeTruthy();
+    expect(await findByText("Test Location")).toBeTruthy();
+    expect(await findByText("20°C")).toBeTruthy();
+    expect(await findByText("Humidity: 65%")).toBeTruthy();
+    expect(await findByText("Wind: 5 km/h")).toBeTruthy();
   });
 
   it("renders weather data correctly in fahrenheit", async () => {
@@ -64,22 +64,20 @@ describe("WeatherItem", () => {
       degreeType: "fahrenheit",
     });
 
-    render(
+    const { findByText } = render(
       <WeatherItem url="https://test.url" name="Test Location" id="test-id" />,
     );
 
-    expect(await screen.findByText("68°F")).toBeTruthy();
+    expect(await findByText("68°F")).toBeTruthy();
   });
 
   it("shows error view when fetch fails", async () => {
     global.fetch = jest.fn(() => Promise.reject("API Error")) as jest.Mock;
 
-    render(
+    const { findByText } = render(
       <WeatherItem url="https://test.url" name="Test Location" id="test-id" />,
     );
 
-    expect(
-      await screen.findByText("Oops, something went wrong..."),
-    ).toBeTruthy();
+    expect(await findByText("Oops, something went wrong...")).toBeTruthy();
   });
 });

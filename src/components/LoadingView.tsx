@@ -1,11 +1,16 @@
-import { ActivityIndicator, Text } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import { ScreenWrapper } from "@/src/components/ScreenWrapper";
+import { ItemWrapper } from "@/src/components/ItemWrapper";
 
 export const LoadingView = () => {
   return (
     <ScreenWrapper>
-      <ActivityIndicator size="large" />
-      <Text>Loading...</Text>
+      <ItemWrapper>
+        <View className="flex items-center justify-center h-full gap-4">
+          <ActivityIndicator size="large" color="blue" />
+          <Text>Loading...</Text>
+        </View>
+      </ItemWrapper>
     </ScreenWrapper>
   );
 };

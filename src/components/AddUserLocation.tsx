@@ -4,7 +4,7 @@ import { useAsyncStorage } from "@react-native-async-storage/async-storage";
 import { useUserLocation } from "@/src/hooks/useUserLocation";
 import { Pressable, Text } from "react-native";
 import { Navigation } from "lucide-react-native";
-import { ASYNC_STORAGE_KEYS } from "@/src/utils/async-storage-keys";
+import { ASYNC_STORAGE_KEYS } from "@/src/lib/utils/async-storage-keys";
 
 export const AddUserLocation = () => {
   const { addStoredUrl } = useStoredUrls();

@@ -7,9 +7,9 @@ import {
   useMemo,
   useState,
 } from "react";
-import { DegreeType } from "@/src/utils/types";
+import { DegreeType } from "@/src/lib/utils/types";
 import { useAsyncStorage } from "@react-native-async-storage/async-storage";
-import { ASYNC_STORAGE_KEYS } from "@/src/utils/async-storage-keys";
+import { ASYNC_STORAGE_KEYS } from "@/src/lib/utils/async-storage-keys";
 
 type UserPreferenceContextType = {
   degreeType: DegreeType;

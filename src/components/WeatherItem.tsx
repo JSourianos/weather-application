@@ -4,8 +4,9 @@ import { ErrorView } from "@/src/components/ErrorView";
 import { LoadingView } from "@/src/components/LoadingView";
 import { Cloud, Droplets, Wind } from "lucide-react-native";
 import { Link } from "expo-router";
-import { resolveDegreeSelectionText } from "@/src/utils/utils";
+import { resolveDegreeSelectionText } from "@/src/lib/utils/utils";
 import { useUserPreference } from "@/src/context/user-preference";
+import { ItemWrapper } from "@/src/components/ItemWrapper";
 
 export const WeatherItem = ({
   url,
@@ -38,7 +39,7 @@ export const WeatherItem = ({
   return (
     <Link href={`/weather/${id}`} asChild>
       <Pressable>
-        <View className="bg-blue-50 rounded-2xl border border-blue-200">
+        <ItemWrapper>
           <Text className="text-2xl font-bold text-left p-4">{name}</Text>
           <View className="flex items-center justify-center mb-6">
             <View className="col-span-2 flex items-center justify-center">
@@ -59,7 +60,7 @@ export const WeatherItem = ({
               </View>
             </View>
           </View>
-        </View>
+        </ItemWrapper>
       </Pressable>
     </Link>
   );
