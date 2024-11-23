@@ -7,11 +7,11 @@ export const resolveDegreeSelectionText = (
   selectedDegree: DegreeType,
 ) => {
   if (selectedDegree === "celsius") {
-    return `${celsius}°C`;
+    return `${celsius.toFixed(2)}°C`;
   }
 
   const fahrenheit = celsius * 1.8 + 32;
-  return `${fahrenheit}°F`;
+  return `${fahrenheit.toFixed(2)}°F`;
 };
 
 export function cn(...inputs: ClassValue[]) {
