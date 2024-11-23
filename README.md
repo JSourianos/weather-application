@@ -63,3 +63,4 @@
 * React Query
 * Higher Test Coverage
 * Timezone support
+* SplashScreen & Icons
