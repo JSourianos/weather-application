@@ -62,3 +62,4 @@
 * CI/CD pipeline
 * React Query
 * Higher Test Coverage
+* Timezone support
