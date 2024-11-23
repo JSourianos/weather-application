@@ -1,4 +1,8 @@
-import { YR_API_URL } from "@/src/lib/utils/api";
+import {
+  YR_LOCATION_FORECAST_API_URL,
+  YR_SUNRISE_API_URL,
+} from "@/src/lib/utils/api";
+
 import {
   createContext,
   ReactNode,
@@ -18,13 +22,11 @@ const OsloCoords = {
   lon: 10.757933,
 };
 
-const KorfuUrl = new URL(YR_API_URL);
-KorfuUrl.searchParams.append("lat", KorfuCoords.lat.toString());
-KorfuUrl.searchParams.append("lon", KorfuCoords.lon.toString());
+const osloForecastUrl = `${YR_LOCATION_FORECAST_API_URL}?lat=${OsloCoords.lat}&lon=${OsloCoords.lon}`;
+const osloSunriseUrl = `${YR_SUNRISE_API_URL}?lat=${OsloCoords.lat}&lon=${OsloCoords.lon}`;
 
-const OsloUrl = new URL(YR_API_URL);
-OsloUrl.searchParams.append("lat", OsloCoords.lat.toString());
-OsloUrl.searchParams.append("lon", OsloCoords.lon.toString());
+const korfuForecastUrl = `${YR_LOCATION_FORECAST_API_URL}?lat=${KorfuCoords.lat}&lon=${KorfuCoords.lon}`;
+const korfuSunriseUrl = `${YR_SUNRISE_API_URL}?lat=${KorfuCoords.lat}&lon=${KorfuCoords.lon}`;
 
 const randomId = () => Math.floor(Math.random() * 1000);
 
@@ -32,18 +34,21 @@ type Url = {
   id: string;
   name: string;
   url: string;
+  sunriseUrl?: string;
 };
 
 const DEFAULT_URLS: Url[] = [
   {
     id: randomId().toString(),
     name: "Korfu",
-    url: KorfuUrl.toString(),
+    url: korfuForecastUrl,
+    sunriseUrl: korfuSunriseUrl,
   },
   {
     id: randomId().toString(),
     name: "Oslo",
-    url: OsloUrl.toString(),
+    url: osloForecastUrl,
+    sunriseUrl: osloSunriseUrl,
   },
 ];
 

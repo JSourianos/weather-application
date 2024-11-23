@@ -2,6 +2,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 import { ScreenWrapper } from "@/src/components/ScreenWrapper";
 import { useUserPreference } from "@/src/context/user-preference";
 import { DegreeType } from "@/src/lib/utils/types";
+import { cn } from "@/src/lib/utils/utils";
 
 export const SettingsScreen = () => {
   const { degreeType, updateDegreeType } = useUserPreference();
@@ -50,19 +51,15 @@ const DegreeTypeButton = ({
   currentDegreeTypeSelected,
   onPress,
 }: DegreeTypeButtonProps) => {
-  // TODO: cn()
-  const isSelectedClass =
-    currentDegreeTypeSelected === degree
-      ? "bg-slate-50  border-blue-500 rounded-2xl"
-      : "bg-slate-200 border-slate-500 rounded-2xl";
-
   return (
     <TouchableOpacity
       onPress={onPress}
-      className={
-        "bg-slate-50 p-4 w-[45%] text-center border-2 rounded-xl" +
-        isSelectedClass
-      }
+      className={cn(
+        "bg-slate-50 p-4 w-[45%] text-center border-2 rounded-xl",
+        currentDegreeTypeSelected === degree
+          ? "bg-slate-50  border-blue-500 rounded-2xl"
+          : "bg-slate-200 border-slate-500 rounded-2xl",
+      )}
     >
       <Text className="text-2xl">{degree}</Text>
     </TouchableOpacity>

@@ -19,6 +19,42 @@ export type YRAPIResponse = {
   };
 };
 
+export type ResponseStatus = "idle" | "loading" | "error";
+
 export type YRTimeseries = YRAPIResponse["properties"]["timeseries"][0];
 
 export type DegreeType = "celsius" | "fahrenheit";
+
+export type YRSunriseResponse = {
+  copyright: string;
+  licenseURL: string;
+  type: string;
+  geometry: {
+    type: string;
+    coordinates: [number, number];
+  };
+  when: {
+    interval: [string, string];
+  };
+  properties: {
+    body: string;
+    sunrise: {
+      time: string;
+      azimuth: number;
+    };
+    sunset: {
+      time: string;
+      azimuth: number;
+    };
+    solarnoon: {
+      time: string;
+      disc_centre_elevation: number;
+      visible: boolean;
+    };
+    solarmidnight: {
+      time: string;
+      disc_centre_elevation: number;
+      visible: boolean;
+    };
+  };
+};

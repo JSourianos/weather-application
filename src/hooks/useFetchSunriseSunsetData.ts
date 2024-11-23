@@ -1,10 +1,15 @@
+import {
+  ResponseStatus,
+  YRAPIResponse,
+  YRSunriseResponse,
+} from "@/src/lib/utils/types";
 import { useEffect, useState } from "react";
-import { ResponseStatus, YRAPIResponse } from "@/src/lib/utils/types";
 
-export const useFetchWeatherData = (
+export const useFetchSunriseSunsetData = (
   url: string,
-): { data: YRAPIResponse | undefined; status: ResponseStatus } => {
-  const [data, setData] = useState<YRAPIResponse | undefined>(undefined);
+): { data: YRSunriseResponse | undefined; status: ResponseStatus } => {
+  console.log("url", url);
+  const [data, setData] = useState<YRSunriseResponse | undefined>(undefined);
   const [status, setStatus] = useState<ResponseStatus>("idle");
 
   useEffect(() => {
@@ -18,6 +23,7 @@ export const useFetchWeatherData = (
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const json = await response.json();
+        console.log(JSON.stringify(json, null, 2));
         setData(json);
       } catch (e) {
         console.error(e);

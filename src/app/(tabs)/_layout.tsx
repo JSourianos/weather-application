@@ -1,7 +1,6 @@
 import { Tabs } from "expo-router";
 import { CloudyIcon, UserCogIcon } from "@/src/lib/icons";
 import { cn } from "@/src/lib/utils/utils";
-import { Text } from "react-native";
 
 export default function TabLayout() {
   return (
