@@ -8,6 +8,7 @@ import {
   Thermometer,
   Sunrise,
   Sunset,
+  Trash,
 } from "lucide-react-native";
 import { iconWithClassName } from "./iconWithClassName";
 iconWithClassName(Cloudy);
@@ -19,6 +20,7 @@ iconWithClassName(ChevronLeft);
 iconWithClassName(Thermometer);
 iconWithClassName(Sunrise);
 iconWithClassName(Sunset);
+iconWithClassName(Trash);
 
 export {
   Cloudy as CloudyIcon,
@@ -30,4 +32,5 @@ export {
   Thermometer as ThermometerIcon,
   Sunrise as SunriseIcon,
   Sunset as SunsetIcon,
+  Trash as TrashIcon,
 };

@@ -71,12 +71,9 @@ export const StoredUrlsProvider = ({ children }: { children: ReactNode }) => {
     setStoredUrls((storedUrls) => [...storedUrls, url]);
   }, []);
 
-  const removeStoredUrl = useCallback(
-    (id: string) => {
-      setStoredUrls(storedUrls.filter((url) => url.id !== id));
-    },
-    [storedUrls],
-  );
+  const removeStoredUrl = useCallback((name: string) => {
+    setStoredUrls((currentUrls) => currentUrls.filter((url) => url.name !== name));
+  }, []);
 
   const contextValue = useMemo(
     () => ({
@@ -86,6 +83,8 @@ export const StoredUrlsProvider = ({ children }: { children: ReactNode }) => {
     }),
     [addStoredUrl, removeStoredUrl, storedUrls],
   );
+
+  console.log("storedUrls", JSON.stringify(storedUrls, null, 2));
 
   return (
     <StoredUrlsContext.Provider value={contextValue}>

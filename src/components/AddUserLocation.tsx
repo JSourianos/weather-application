@@ -5,6 +5,7 @@ import { useUserLocation } from "@/src/hooks/useUserLocation";
 import { Pressable, Text } from "react-native";
 import { Navigation } from "lucide-react-native";
 import { ASYNC_STORAGE_KEYS } from "@/src/lib/utils/async-storage-keys";
+import { YR_SUNRISE_API_URL } from "../lib/utils/api";
 
 export const AddUserLocation = () => {
   const { addStoredUrl } = useStoredUrls();
@@ -30,6 +31,7 @@ export const AddUserLocation = () => {
         id: Math.floor(Math.random() * 1000).toString(),
         name: "My Location",
         url: `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${latitude}&lon=${longitude}`,
+        sunriseUrl: `${YR_SUNRISE_API_URL}?lat=${latitude}&lon=${longitude}`,
       });
     });
   }
